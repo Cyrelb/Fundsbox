@@ -38,35 +38,51 @@
 
 
     </LinearLayout>
+    <LinearLayout android:id="@+id/risk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="0dp"
+        android:orientation="horizontal">
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="Risk"/>
+    </LinearLayout>
 
     <LinearLayout android:id="@+id/riskGrp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="95dp"
         android:layout_marginBottom="0dp"
         android:orientation="horizontal">
         >
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="Risk Low"/>
+            android:textSize="18sp"
+            android:text="Low"/>
 
         <SeekBar
             android:id="@+id/seekBar"
-            android:layout_width="140dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:max="4"
             android:progress="0"
             android:progressDrawable="@drawable/seekbar_progressbar"
             style="@style/Widget.AppCompat.SeekBar.Discrete"
             android:thumbTintMode="multiply" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignEnd="@+id/riskGrp"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:text="High" />
 
     </LinearLayout>
@@ -74,7 +90,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="140dp"
         android:layout_marginBottom="0dp"
         android:orientation="horizontal">
         >
@@ -82,7 +98,7 @@
             android:id="@+id/investButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textAllCaps="false"
             android:text="Invest"/>
 

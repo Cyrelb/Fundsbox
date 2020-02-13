@@ -40,11 +40,11 @@ public class InvestActivity  extends AppCompatActivity implements View.OnClickLi
 
     private int colorRisk2 = Color.rgb(192, 255, 140);  // green
     private int colorRisk2bis =  Color.rgb(220, 250, 120); // green
-    private int colorRisk2ter =  Color.rgb(230, 250, 110); // green
-    private int colorRisk3 = Color.rgb(140, 234, 255);  // blue
-    private int colorRisk3bis = Color.rgb(150, 224, 255);  // blue
-    private int colorRisk4 = Color.rgb(255, 247, 140); // yellow
-    private int colorRisk4bis = Color.rgb(255, 230, 140); // yellow
+    //private int colorRisk2ter =  Color.rgb(230, 250, 110); // green
+    private int colorRisk3 = Color.rgb(230, 245, 150);  //
+    private int colorRisk3bis = Color.rgb(230, 235, 160);  //
+    private int colorRisk4 = Color.rgb(245, 235, 130); // yellow
+    private int colorRisk4bis = Color.rgb(255, 230, 130); // yellow
     private int colorRisk5 =  Color.rgb(255, 208, 140);// Orange
     private int colorRisk5bis =  Color.rgb(255, 198, 140);// Orange
     private int colorRisk6 = Color.rgb(255, 160, 140);
@@ -112,7 +112,7 @@ public class InvestActivity  extends AppCompatActivity implements View.OnClickLi
                     case 0: {
                         List<SliceValue> pieData = new ArrayList<>();
                         pieData.add(new SliceValue(50, colorRisk2).setLabel(asset1Name));
-                        pieData.add(new SliceValue(50, colorRisk2).setLabel(asset2Name));
+                        pieData.add(new SliceValue(50, colorRisk2bis).setLabel(asset2Name));
                         PieChartData pieChartData = new PieChartData(pieData);
                         pieChartData.setHasLabels(true);
                         pieChartData.setHasCenterCircle(true).setCenterText1("Conservative").setCenterText1FontSize(20).setCenterText1Color(Color.parseColor("#0097A7"));
@@ -186,7 +186,7 @@ public class InvestActivity  extends AppCompatActivity implements View.OnClickLi
 
         List<SliceValue> pieData = new ArrayList<>();
         pieData.add(new SliceValue(50, colorRisk2).setLabel(asset1Name));
-        pieData.add(new SliceValue(50, colorRisk2).setLabel(asset2Name));
+        pieData.add(new SliceValue(50, colorRisk2bis).setLabel(asset2Name));
         PieChartData pieChartData = new PieChartData(pieData);
         pieChartData.setHasLabels(true);
         pieChartData.setHasCenterCircle(true).setCenterText1("Portfolio").setCenterText1FontSize(20).setCenterText1Color(Color.parseColor("#0097A7"));
@@ -241,6 +241,7 @@ public class InvestActivity  extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
+        double amountTrx = Double.valueOf( amount.getText().toString().replace(",", ""));
 
         switch(v.getId()) {
 // SharedPrefManager.getInstance(InvestActivity.this).getUser()
@@ -276,56 +277,57 @@ public class InvestActivity  extends AppCompatActivity implements View.OnClickLi
                     e.printStackTrace();
                 }
                 */
+
             case R.id.investButton:
                 switch (selectedRisk) {
                     case 0: {
-                        double amountTrx = Double.valueOf( amount.getText().toString()) * perc50;
+                        amountTrx = amountTrx * perc50;
                         insertTrx(asset1Name, Double.toString(amountTrx), "EUR" );
                         insertTrx(asset2Name, Double.toString(amountTrx), "EUR" );
                         break;
                     }
                     case 1: {
-                        double amountTrx = Double.valueOf( amount.getText().toString()) * perc10;
+                        amountTrx = amountTrx * perc10;
                         insertTrx(asset1Name, Double.toString(amountTrx), "EUR" );
                         insertTrx(asset2Name, Double.toString(amountTrx), "EUR" );
-                        amountTrx = Double.valueOf( amount.getText().toString()) * perc30;
+                        amountTrx = amountTrx * perc30;
                         insertTrx(asset2Name, Double.toString(amountTrx), "EUR" );
                         insertTrx(asset3Name, Double.toString(amountTrx), "EUR" );
-                        amountTrx = Double.valueOf( amount.getText().toString()) * perc10;
+                        amountTrx = amountTrx * perc10;
                         insertTrx(asset4Name, Double.toString(amountTrx), "EUR" );
                         insertTrx(asset5Name, Double.toString(amountTrx), "EUR" );
                         break;
                     }
                     case 2: {
-                        double amountTrx = Double.valueOf( amount.getText().toString()) * perc10;
+                        amountTrx = amountTrx * perc10;
                         insertTrx(asset3Name, Double.toString(amountTrx), "EUR" );
                         insertTrx(asset4Name, Double.toString(amountTrx), "EUR" );
-                        amountTrx = Double.valueOf( amount.getText().toString()) * perc30;
+                        amountTrx = amountTrx * perc30;
                         insertTrx(asset5Name, Double.toString(amountTrx), "EUR" );
                         insertTrx(asset6Name, Double.toString(amountTrx), "EUR" );
-                        amountTrx = Double.valueOf( amount.getText().toString()) * perc10;
+                        amountTrx = amountTrx * perc10;
                         insertTrx(asset7Name, Double.toString(amountTrx), "EUR" );
                         insertTrx(asset8Name, Double.toString(amountTrx), "EUR" );
                         break;
                     }
                     case 3: {
-                        double amountTrx = Double.valueOf( amount.getText().toString()) * perc10;
+                        amountTrx = amountTrx * perc10;
                         insertTrx(asset5Name, Double.toString(amountTrx), "EUR" );
                         insertTrx(asset6Name, Double.toString(amountTrx), "EUR" );
-                        amountTrx = Double.valueOf( amount.getText().toString()) * perc30;
+                        amountTrx = amountTrx * perc30;
                         insertTrx(asset7Name, Double.toString(amountTrx), "EUR" );
                         insertTrx(asset8Name, Double.toString(amountTrx), "EUR" );
-                        amountTrx = Double.valueOf( amount.getText().toString()) * perc10;
+                        amountTrx = amountTrx * perc10;
                         insertTrx(asset9Name, Double.toString(amountTrx), "EUR" );
                         insertTrx(asset10Name, Double.toString(amountTrx), "EUR" );
                         break;
 
                     }
                     case 4: {
-                        double amountTrx = Double.valueOf( amount.getText().toString()) * perc30;
+                        amountTrx = amountTrx * perc30;
                         insertTrx(asset9Name, Double.toString(amountTrx), "EUR" );
                         insertTrx(asset10Name, Double.toString(amountTrx), "EUR" );
-                        amountTrx = Double.valueOf( amount.getText().toString()) * perc20;
+                        amountTrx = amountTrx * perc20;
                         insertTrx(asset11Name, Double.toString(amountTrx), "EUR" );
                         insertTrx(asset12Name, Double.toString(amountTrx), "EUR" );
                         break;
@@ -400,7 +402,7 @@ public class InvestActivity  extends AppCompatActivity implements View.OnClickLi
                     @Override
                     public void onResponse(String response) {
                         // Display the first 500 characters of the response string.
-                        Toast.makeText(InvestActivity.this, response, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(InvestActivity.this, response, Toast.LENGTH_SHORT).show();
 
                     }
                 }, new com.android.volley.Response.ErrorListener() {
