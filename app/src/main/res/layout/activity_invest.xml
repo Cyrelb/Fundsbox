@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="0dp"
         android:orientation="horizontal">
 
@@ -23,27 +23,18 @@
             android:layout_centerHorizontal="true"
             android:ems="10"
             android:hint="Amount"
-            android:text="100000"
-            android:textAlignment="center"
+            android:text=""
+            android:textAlignment="textEnd"
             android:inputType="numberDecimal" />
 
-        <TextView
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:width="10dp"
-            android:background="@color/colorPrimary"
-            android:clickable="false"
-            android:text=" EUR"
-            android:textColor="#FFFFFFFF"
-            android:textSize="20sp" />
 
         <TextView
-            android:layout_width="50dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:width="10dp"
             android:clickable="false"
-            android:text=" USD"
-            android:textSize="20sp" />
+            android:text=" .00 EUR"
+            android:textSize="18sp" />
 
 
     </LinearLayout>
@@ -83,7 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="150dp"
         android:layout_marginBottom="0dp"
         android:orientation="horizontal">
         >
