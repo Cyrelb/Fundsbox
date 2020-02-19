@@ -28,6 +28,7 @@
         </activity>
         <activity android:name=".activities.InvestActivity"></activity>
         <activity android:name=".activities.ConfirmationActivity"></activity>
+        <activity android:name=".activities.WalletActivity"></activity>
     </application>
 
 </manifest>

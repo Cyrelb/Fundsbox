@@ -5,9 +5,17 @@ import android.graphics.Color;
 import android.icu.text.DecimalFormat;
 import android.icu.text.NumberFormat;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -31,7 +39,10 @@ import lecho.lib.hellocharts.model.PieChartData;
 import lecho.lib.hellocharts.model.SliceValue;
 import lecho.lib.hellocharts.view.PieChartView;
 
-public class InvestActivity  extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
+public class InvestActivity  extends AppCompatActivity implements
+        View.OnClickListener,
+        AdapterView.OnItemSelectedListener,
+        NavigationView.OnNavigationItemSelectedListener {
 
     private SeekBar seekBar;
     PieChartView pieChartView;
@@ -74,10 +85,28 @@ public class InvestActivity  extends AppCompatActivity implements View.OnClickLi
 
     private int selectedRisk = 0;
 
+    private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle mtoggle;
+    private NavigationView navigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_invest);
+
+        drawerLayout = (DrawerLayout) findViewById(R.id.activity_invest);
+        mtoggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
+        drawerLayout.addDrawerListener(mtoggle);
+        mtoggle.syncState();
+        navigationView = (NavigationView) findViewById(R.id.navigationheader);
+        navigationView.setNavigationItemSelectedListener(InvestActivity.this);
+
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
 
         investButton = findViewById(R.id.investButton);
         investButton.setOnClickListener(this);
@@ -415,7 +444,42 @@ public class InvestActivity  extends AppCompatActivity implements View.OnClickLi
 
         // Add the request to the RequestQueue.
         queue.add(stringRequest);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.drawermenu, menu);
+
+
+        return true;
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+
+        switch (id){
+            case R.id.menu1:
+                startActivity(new Intent(investButton.getContext() , WalletActivity.class));
+        }
+        return false;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu1:
+                startActivity(new Intent(investButton.getContext() , WalletActivity.class));
+                break;
+        }
+        if (mtoggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return super.onContextItemSelected(item);
 
     }
+
 
 }

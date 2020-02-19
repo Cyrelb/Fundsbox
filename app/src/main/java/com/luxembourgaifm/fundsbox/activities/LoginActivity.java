@@ -340,6 +340,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
+
+
+                SharedPrefManager.getInstance(LoginActivity.this).saveUser( mEmailView.getText().toString().trim());
+
                 startActivity(new Intent(mLoginFormView.getContext() ,InvestActivity.class));
                  //finish();
             } else {
